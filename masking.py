@@ -3,18 +3,20 @@ def mask_func(person):
     for key in person:
         if key in ['first_name', 'last_name', 'date_of_birth', 'email_address']:  
             word = person[key]
+            words = word.split('-')
+            print(words)
             masked_words = []
 
-            
-            word_list = list(word)
-            for i in range(len(word_list)):
-                if i > 1:
-                    word_list[i] = '*'  
-            masked_word = ''.join(word_list)
-            masked_words.append(masked_word)
+            for word in words:
+                word_list = list(word)
+                for i in range(len(word_list)):
+                    if i > 1:
+                        word_list[i] = '*'  
+                    masked_word = ''.join(word_list)
 
-            masked_string = ' '.join(masked_words)
-            masked_person[key] = masked_string  
+                masked_words.append(masked_word)
+                masked_string = '-'.join(masked_words)
+                masked_person[key] = masked_string  
         else:
             masked_person[key] = person[key]  
 
