@@ -1,6 +1,5 @@
 def mask_func(person):
-    masked_person = {}  # Initialize a new dictionary for the masked values
-
+    masked_person = {}  
     for key in person:
         if key in ['first_name', 'last_name', 'date_of_birth', 'email_address']:  
             word = person[key]
@@ -28,8 +27,8 @@ person = {
     'email_address': 'john@mail.com',
 }
 
-masked_person = mask_func(person)
+print(mask_func(person))
 
-print("Masked Person:", masked_person)
+
 
 
